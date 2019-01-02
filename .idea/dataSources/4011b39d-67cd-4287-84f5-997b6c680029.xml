@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="dbakademik@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="dbakademik">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="dbbukutamu"/>
+    <schema id="4" parent="1" name="dbkasus"/>
+    <schema id="5" parent="1" name="dbkost"/>
+    <schema id="6" parent="1" name="db_akademik"/>
+    <schema id="7" parent="1" name="information_schema"/>
+    <schema id="8" parent="1" name="mysql"/>
+    <schema id="9" parent="1" name="performance_schema"/>
+    <schema id="10" parent="1" name="phpmyadmin"/>
+    <schema id="11" parent="1" name="test"/>
+    <table id="12" parent="2" name="akun"/>
+    <table id="13" parent="2" name="dosen"/>
+    <table id="14" parent="2" name="jurusan"/>
+    <table id="15" parent="2" name="mahasiswa"/>
+    <table id="16" parent="2" name="matakuliah"/>
+    <table id="17" parent="2" name="prodi"/>
+    <column id="18" parent="12" name="username">
+      <Position>1</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="12" name="password">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="12" name="level">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="21" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>username</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="22" parent="13" name="nip">
+      <Position>1</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="13" name="nama">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="13" name="email">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="13" name="jk">
+      <Position>4</Position>
+      <DataType>char(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="13" name="notelp">
+      <Position>5</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="13" name="alamat">
+      <Position>6</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="28" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>nip</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="29" parent="14" name="id_jurusan">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="30" parent="14" name="nama_jurusan">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="14" name="keterangan">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="32" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_jurusan</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="33" parent="15" name="nim">
+      <Position>1</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="15" name="nama">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="15" name="jekel">
+      <Position>3</Position>
+      <DataType>char(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="15" name="id_jurusan">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="15" name="id_prodi">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="15" name="no_telp">
+      <Position>6</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="15" name="alamat">
+      <Position>7</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="40" parent="15" name="id_jurusan">
+      <ColNames>id_jurusan</ColNames>
+    </index>
+    <index id="41" parent="15" name="id_prodi">
+      <ColNames>id_prodi</ColNames>
+    </index>
+    <key id="42" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>nim</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="43" parent="15" name="mahasiswa_ibfk_1">
+      <ColNames>id_jurusan</ColNames>
+      <RefSchemaName>dbakademik</RefSchemaName>
+      <RefTableName>jurusan</RefTableName>
+      <RefColNames>id_jurusan</RefColNames>
+    </foreign-key>
+    <foreign-key id="44" parent="15" name="mahasiswa_ibfk_2">
+      <ColNames>id_prodi</ColNames>
+      <RefSchemaName>dbakademik</RefSchemaName>
+      <RefTableName>prodi</RefTableName>
+      <RefColNames>id_prodi</RefColNames>
+    </foreign-key>
+    <column id="45" parent="16" name="kode_matkul">
+      <Position>1</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="16" name="nama_matkul">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="16" name="sks">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="16" name="jam">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="16" name="keterangan">
+      <Position>5</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="50" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>kode_matkul</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="51" parent="17" name="id_prodi">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="52" parent="17" name="nama_prodi">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="17" name="keterangan">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="17" name="id_jurusan">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="55" parent="17" name="id_jurusan">
+      <ColNames>id_jurusan</ColNames>
+    </index>
+    <key id="56" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_prodi</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="57" parent="17" name="prodi_ibfk_1">
+      <ColNames>id_jurusan</ColNames>
+      <RefSchemaName>dbakademik</RefSchemaName>
+      <RefTableName>jurusan</RefTableName>
+      <RefColNames>id_jurusan</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
